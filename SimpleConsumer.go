@@ -9,7 +9,7 @@ import (
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
-func CreateConsumer(broker int, group int, topics []string, message chan kafka.Event, error chan kafka.Event) (*kafka.Consumer, error) {
+func CreateConsumer(broker int, group int, topics []string) (*kafka.Consumer, error) {
 
 	sigchan := make(chan os.Signal, 1)
 	signal.Notify(sigchan, syscall.SIGINT, syscall.SIGTERM)
